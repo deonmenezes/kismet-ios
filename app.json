@@ -1,0 +1,111 @@
+{
+  "expo": {
+    "name": "Kismet",
+    "slug": "agent-dates",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": [
+      "agentdates",
+      "kismet"
+    ],
+    "userInterfaceStyle": "automatic",
+    "description": "Kismet: your private AI agent meets other residents' agents in your village and tells you who to meet: friends, collaborators, co-founders. Romance only if you both turn it on.",
+    "ios": {
+      "bundleIdentifier": "com.deonmenezes.agentdates",
+      "buildNumber": "3",
+      "supportsTablet": false,
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "privacyManifests": {
+        "NSPrivacyAccessedAPITypes": [
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "CA92.1"
+            ]
+          }
+        ]
+      },
+      "entitlements": {
+        "keychain-access-groups": [
+          "$(AppIdentifierPrefix)com.deonmenezes.agentdates.shared"
+        ]
+      }
+    },
+    "android": {
+      "package": "com.deonmenezes.agentdates",
+      "versionCode": 3,
+      "adaptiveIcon": {
+        "backgroundColor": "#1A0F22",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "backgroundImage": "./assets/images/android-icon-background.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "blockedPermissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.SYSTEM_ALERT_WINDOW",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.USE_BIOMETRIC",
+        "android.permission.USE_FINGERPRINT"
+      ],
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "single",
+      "favicon": "./assets/images/favicon.png",
+      "name": "Kismet",
+      "backgroundColor": "#FFFBF7"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#FFFBF7",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 120,
+          "dark": {
+            "backgroundColor": "#1A0F22",
+            "image": "./assets/images/splash-icon.png"
+          }
+        }
+      ],
+      [
+        "expo-secure-store",
+        {
+          "configureAndroidBackup": true,
+          "faceIDPermission": false
+        }
+      ],
+      "expo-web-browser",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Kismet opens your photo library only when you choose photos of yourself for your profile.",
+          "cameraPermission": false,
+          "microphonePermission": false
+        }
+      ],
+      "./plugins/with-release-signing",
+      [
+        "./plugins/with-messages-extension",
+        {
+          "bundleIdentifier": "com.deonmenezes.agentdates.messages",
+          "displayName": "Kismet",
+          "teamId": "Q4MU4GRWRD",
+          "keychainGroup": "com.deonmenezes.agentdates.shared"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": false,
+      "reactCompiler": true
+    }
+  }
+}
